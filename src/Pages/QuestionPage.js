@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Grid, Typography } from '@mui/material'
 import { TextField } from '@mui/material'
 import { Button } from '@mui/material'
@@ -13,12 +13,16 @@ const QuestionPage = ({ data, state, setPoints, points }) => {
         if (data.answer.toLowerCase() === input.toLowerCase()) {
             setPoints(previousState => new Set([...previousState, input]))
             setError('')
-            localStorage.setItem('points', JSON.stringify([...points]));
             return
         }
         else setError('Fel svar, testa igen.')
 
     }
+
+    useEffect(() => {
+        localStorage.setItem('points', JSON.stringify([...points]));
+    }, [points])
+
 
 
 
@@ -39,7 +43,7 @@ const QuestionPage = ({ data, state, setPoints, points }) => {
 
             <form>
                 <Grid minWidth={'50vw'} item>
-                    <TextField onChange={(e) => handleChange(e)} helperText={error} fullWidth label={`fråga ${data.state}`} />
+                    <TextField autoFocus onChange={(e) => handleChange(e)} helperText={error} fullWidth label={`fråga ${data.state}`} />
                 </Grid>
                 <Grid mt={'24px'} minWidth={'50vw'} display={'flex'} justifyContent={'center'} item>
                     <Button type="submit" onClick={(e) => onSubmit(e)} variant='contained'>Skicka svar</Button>
