@@ -3,15 +3,25 @@ import { Grid, Typography } from '@mui/material'
 import { TextField } from '@mui/material'
 import { Button } from '@mui/material'
 
-const QuestionPage = ({ data, state, setPoints, points }) => {
+const QuestionPage = ({ data, setPoints, points }) => {
 
     const [error, setError] = useState('')
     const [input, setInput] = useState('')
 
     const onSubmit = (e) => {
         e.preventDefault();
+        const hour = new Date().getHours().toString()
+        const minutes = new Date().getMinutes().toString()
+        const seconds = new Date().getSeconds().toString()
+        const time = hour + minutes + seconds
+        console.log(data.state)
+        if (data.state === 6 && input === time) {
+            setPoints(previousState => new Set([...previousState, data.state]))
+            setError('')
+            return
+        }
         if (data.answer.toLowerCase() === input.toLowerCase()) {
-            setPoints(previousState => new Set([...previousState, input]))
+            setPoints(previousState => new Set([...previousState, data.state]))
             setError('')
             return
         }
@@ -43,7 +53,7 @@ const QuestionPage = ({ data, state, setPoints, points }) => {
 
             <form>
                 <Grid minWidth={'50vw'} item>
-                    <TextField autoFocus onChange={(e) => handleChange(e)} helperText={error} fullWidth label={`fråga ${data.state}`} />
+                    <TextField autoFocus onChange={(e) => handleChange(e)} helperText={error} error={!!error} fullWidth label={`fråga ${data.state}`} />
                 </Grid>
                 <Grid mt={'24px'} minWidth={'50vw'} display={'flex'} justifyContent={'center'} item>
                     <Button type="submit" onClick={(e) => onSubmit(e)} variant='contained'>Skicka svar</Button>
