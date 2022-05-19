@@ -10,17 +10,19 @@ const QuestionPage = ({ data, setPoints, points }) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        const hour = new Date().getHours().toString()
-        const minutes = new Date().getMinutes().toString()
-        const seconds = new Date().getSeconds().toString()
-        const time = hour + minutes + seconds
+        const date = new Date();
+        const hour = date.getHours().toString()
+        const minutes = date.getMinutes().toString()
+        const time = hour + minutes
         console.log(data.state)
-        if (data.state === 6 && input === time) {
-            setPoints(previousState => new Set([...previousState, data.state]))
-            setError('')
-            return
-        }
-        if (data.answer.toLowerCase() === input.toLowerCase()) {
+        if (data.state === 6) {
+            const timeInput = parseInt(input.replace(/[^\d]/g, '')); // ta bort allt som inte är en siffra och parsa till int för att ta bort eventuell 0:a i början (e.g 0851 blir 851)
+            if (timeInput === parseInt(time)) {
+                setPoints(previousState => new Set([...previousState, data.state]))
+                setError('')
+                return
+            }
+        } else if (data.answer.map(a => a.toLowerCase()).includes(input.toLowerCase())) {
             setPoints(previousState => new Set([...previousState, data.state]))
             setError('')
             return
