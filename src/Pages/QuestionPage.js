@@ -52,11 +52,14 @@ const QuestionPage = ({ data, setPoints, points, setState }) => {
     return (
 
         <Grid minWidth={'50vw'} minHeight={'50vh'} container flexDirection={'column'} gap={'2rem'} justifyContent={'center'} alignItems={'center'}>
-            <Grid item>
+            <Grid item justifyContent={'center'} alignItems={'center'}>
 
-                <Typography>
-                    {data.question}
-                </Typography>
+                {data.img ?
+                    <img style={{ width: '50%', marginLeft: 'auto', marginRight: 'auto', display: 'block' }} src={data.img} alt="norefer" />
+                    : <Typography>
+                        {data.question}
+                    </Typography>}
+
             </Grid>
 
             <form>
@@ -64,7 +67,7 @@ const QuestionPage = ({ data, setPoints, points, setState }) => {
                     <TextField autoFocus onChange={(e) => handleChange(e)} helperText={error} error={!!error} fullWidth label={`fråga ${data.state}`} />
                 </Grid>
                 <Grid mt={'24px'} minWidth={'50vw'} display={'flex'} justifyContent={'center'} item>
-                    <Button type="button" onClick={(e) => setState(0)} variant='outlined' sx={ { marginRight: '1rem' }}>Tillbaka</Button>
+                    <Button type="button" onClick={(e) => setState(0)} variant='outlined' sx={{ marginRight: '1rem' }}>Tillbaka</Button>
                     <Button type="submit" onClick={(e) => onSubmit(e)} variant='contained'>Skicka svar</Button>
                 </Grid>
             </form>
