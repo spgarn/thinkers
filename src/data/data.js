@@ -46,4 +46,7 @@ export const data =
         { state: 44, answer: ['the cataclysm', 'cataclysm', 'catacclysm'], question: 'Musik ifrån vilken expansion spelas i bakgrunden?' },
         { state: 45, answer: ['Kanel'], question: 'Alla elektrikers favoritkrydda.' },
         { state: 46, answer: ['fyra', '4'], img: 'https://i.imgur.com/ZO13mj9.png' },
+        { state: 47, answer: ['clean', 'kleeen', 'klen', 'ren'], question: 'Så färsk och så ...?' },
+        { state: 48, answer: ['IDAGBITTI', 'idag bitti', 'simmeidag', 'bitti'], question: 'Frukost idag .....?' },
+        { state: 49, answer: ['DATABAS', 'data bas'], question: 'Bil gates favorit instrument?' },
     ]
