@@ -30,7 +30,7 @@ export const data =
         { state: 28, answer: ['Ljus', 'Ett ljus', 'ljuset'], question: 'Jag är lång när jag är ung, men kort när jag är gammal. Vad är jag?' },
         { state: 29, answer: ['på utsidan', 'utsidan'], question: 'På vilken sida av fåret är det mest ull?' },
         { state: 30, answer: ['ekot', 'eko', 'ett ekot'], question: 'Vad är det som kan alla språk utan att ha lärt sig dem?' },
-        { state: 31, answer: ['6 barn', '6 st', '6', 6, 'sex', 'sex st'], question: 'En man hade fem söner, och varje son hade en syster. Hur många barn hade mannen som minst?' },
+        { state: 31, answer: ['6 barn', '6 st', '6', 'sex', 'sex st'], question: 'En man hade fem söner, och varje son hade en syster. Hur många barn hade mannen som minst?' },
         { state: 32, answer: ['ingen'], question: 'Tre doktorer sa att Kalle var deras bror. Kalle sa att han inte hade några bröder. Vem ljuger?' },
         { state: 33, answer: ['mig själv', 'jag', 'mig', 'jag själv'], question: 'Mina föräldrars barn är inte min syster och inte min bror. Vem är det då?' },
         { state: 34, answer: ['Din vänstra hand', 'vänsterhand', 'vänstra handen', 'vänster hand'], question: 'Vad kan du hålla i din högra hand, men inte i din vänstra??' },
@@ -41,4 +41,9 @@ export const data =
         { state: 39, answer: ['31 december', 'sista december', '31e december'], question: 'Jag fyllde 12 år igår. Nästa år fyller jag 14 år. När är jag född?' },
         { state: 40, answer: ['8', 'åtta'], img: 'https://www.arla.se/49c69f/globalassets/arlakadabra/facit/kluringar/bondegardskluring-matte-900x1000.png' },
         { state: 41, answer: ['3', 'tre', 'glas tre'], img: 'https://www.humorbibeln.se/wp-content/uploads/sites/4/2019/07/bildvinglas.jpg' },
+        { state: 42, answer: ['misstaget', 's', 'ett s saknas', 'saknas s', 'ett s'], img: 'https://www.humorbibeln.se/wp-content/uploads/sites/4/2018/04/Namnlo%CC%88st-1-16.jpg' },
+        { state: 43, answer: ['poäng', 'poängen'], img: 'https://i.imgur.com/uDu9uEM.png' },
+        { state: 44, answer: ['the cataclysm', 'cataclysm', 'catacclysm'], question: 'Musik ifrån vilken expansion spelas i bakgrunden?' },
+        { state: 45, answer: ['Kanel'], question: 'Alla elektrikers favoritkrydda.' },
+        { state: 46, answer: ['fyra', '4'], img: 'https://i.imgur.com/ZO13mj9.png' },
     ]

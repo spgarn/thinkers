@@ -15,7 +15,6 @@ const QuestionPage = ({ data, setPoints, points, setState }) => {
         const minutes = date.getMinutes().toString()
         const seconds = date.getSeconds().toString()
         const time = hour + minutes + seconds
-        console.log(data.state)
         if (data.state === 6) {
             const numberInput = input.replace(/[^\d]/g, '');
             const numberInputParsed = parseInt(numberInput); // ta bort allt som inte är en siffra och parsa till int för att ta bort eventuell 0:a i början (e.g 08:51:55 blir 85155)
@@ -51,11 +50,11 @@ const QuestionPage = ({ data, setPoints, points, setState }) => {
 
     return (
 
-        <Grid minWidth={'50vw'} minHeight={'50vh'} container flexDirection={'column'} gap={'2rem'} justifyContent={'center'} alignItems={'center'}>
+        <Grid minWidth={'50vw'} minHeight={'50vh'} container gap={'2rem'} justifyContent={'center'} alignItems={'center'}>
             <Grid item justifyContent={'center'} alignItems={'center'}>
 
                 {data.img ?
-                    <img style={{ width: '50%', marginLeft: 'auto', marginRight: 'auto', display: 'block' }} src={data.img} alt="norefer" />
+                    <img style={{ width: '40%', minWidth: '300px', marginLeft: 'auto', position: 'relative', marginRight: 'auto', display: 'block' }} src={data.img} alt="norefer" />
                     : <Typography>
                         {data.question}
                     </Typography>}
@@ -66,13 +65,15 @@ const QuestionPage = ({ data, setPoints, points, setState }) => {
                 <Grid minWidth={'50vw'} item>
                     <TextField autoFocus onChange={(e) => handleChange(e)} helperText={error} error={!!error} fullWidth label={`fråga ${data.state}`} />
                 </Grid>
+                <div onClick={() => setState(0)} className="icon">
+                    <div className="arrow"></div>
+                </div>
                 <Grid mt={'24px'} minWidth={'50vw'} display={'flex'} justifyContent={'center'} item>
-                    <Button type="button" onClick={(e) => setState(0)} variant='outlined' sx={{ marginRight: '1rem' }}>Tillbaka</Button>
                     <Button type="submit" onClick={(e) => onSubmit(e)} variant='contained'>Skicka svar</Button>
                 </Grid>
-            </form>
+            </form >
 
-        </Grid>
+        </Grid >
 
     )
 }
