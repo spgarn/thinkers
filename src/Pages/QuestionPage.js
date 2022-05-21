@@ -27,12 +27,18 @@ const QuestionPage = ({ data, setPoints, points, setState }) => {
             } else if (hourMinutParsed === parseInt(hour + minutes)) {
                 setError('Fel svar, men jäkligt nära!')
             }
+            else {
+                setError('Fel svar, testa igen.')
+            }
         } else if (data.answer.map(a => a.toLowerCase()).includes(input.toLowerCase())) {
             setPoints(previousState => new Set([...previousState, data.state]))
             setError('')
             return
         }
-        else setError('Fel svar, testa igen.')
+        else {
+            console.log('test3')
+            setError('Fel svar, testa igen.')
+        }
 
     }
 
@@ -50,7 +56,7 @@ const QuestionPage = ({ data, setPoints, points, setState }) => {
 
     return (
 
-        <Grid minWidth={'50vw'} minHeight={'50vh'} container gap={'2rem'} justifyContent={'center'} alignItems={'center'}>
+        <Grid minWidth={'50vw'} minHeight={'50vh'} container gap={'2rem'} justifyContent={'center'} alignItems={'center'} flexDirection={'column'}>
             <Grid item justifyContent={'center'} alignItems={'center'}>
 
                 {data.img ?
