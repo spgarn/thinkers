@@ -49,4 +49,5 @@ export const data =
         { state: 47, answer: ['clean', 'kleeen', 'klen', 'ren'], question: 'Så färsk och så ...?' },
         { state: 48, answer: ['IDAGBITTI', 'idag bitti', 'simmeidag', 'bitti'], question: 'Frukost idag .....?' },
         { state: 49, answer: ['DATABAS', 'data bas'], question: 'Bil gates favorit instrument?' },
+        { state: 50, answer: ['GOSIS', 'GÅSIS'], question: 'Majkol SALA ---?' },
     ]

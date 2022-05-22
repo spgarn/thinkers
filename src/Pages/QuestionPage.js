@@ -60,7 +60,7 @@ const QuestionPage = ({ data, setPoints, points, setState }) => {
             <Grid item justifyContent={'center'} alignItems={'center'}>
 
                 {data.img ?
-                    <img style={{ width: '40%', minWidth: '300px', marginLeft: 'auto', position: 'relative', marginRight: 'auto', display: 'block' }} src={data.img} alt="norefer" />
+                    <img style={{ width: '40%', minWidth: '250px', marginLeft: 'auto', position: 'relative', marginRight: 'auto', display: 'block' }} src={data.img} alt="norefer" />
                     : <Typography>
                         {data.question}
                     </Typography>}
