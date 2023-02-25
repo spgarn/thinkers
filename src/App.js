@@ -1,6 +1,7 @@
 import RenderPage from "./Pages/RenderPage";
 import Card from './components/Card'
 import Page from "./components/Page";
+import { Toaster } from "react-hot-toast";
 import { createTheme, GlobalStyles, ThemeProvider } from '@mui/material';
 
 const theme = createTheme({
@@ -52,6 +53,7 @@ function App() {
             <Page>
                 <Card>
                     <RenderPage />
+                    <Toaster />
                 </Card>
             </Page>
         </ThemeProvider>

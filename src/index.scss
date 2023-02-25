@@ -1,0 +1,184 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+body {
+    background-color: #00b894;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  
+  .icon {
+    position: absolute;
+    top:70px;
+    left: 35px;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    transform: rotate(180deg);
+
+  }
+  
+  .arrow {
+    position: absolute;
+    top: 25px;
+    width: 90%;
+    height: 5px;
+    background-color: black;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+    animation: arrow 700ms linear infinite;
+  }
+  
+  .arrow::after, .arrow::before {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 5px;
+    right: -4px;
+    background-color: black;
+  }
+  
+  .arrow::after {
+    top: -6px;
+    transform: rotate(45deg);
+  }
+  
+  .arrow::before {
+    top: 6px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+    transform: rotate(-45deg);
+  }
+.snowBackground{
+    height: 80vh;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    overflow: hidden;
+    filter: drop-shadow(0 0 10px white);
+}
+
+  @function random_range($min, $max) {
+    $rand: random();
+    $random_range: $min + floor($rand * (($max - $min) + 1));
+    @return $random_range;
+  }
+  
+  .snow {
+    $total: 200;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+  
+    @for $i from 1 through $total {
+      $random-x: random(1000000) * 0.0001vw;
+      $random-offset: random_range(-100000, 100000) * 0.0001vw;
+      $random-x-end: $random-x + $random-offset;
+      $random-x-end-yoyo: $random-x + ($random-offset / 2);
+      $random-yoyo-time: random_range(30000, 80000) / 100000;
+      $random-yoyo-y: $random-yoyo-time * 100vh;
+      $random-scale: random(10000) * 0.0001;
+      $fall-duration: random_range(10, 30) * 1s;
+      $fall-delay: random(30) * -1s;
+  
+      &:nth-child(#{$i}) {
+        opacity: random(10000) * 0.0001;
+        transform: translate($random-x, -10px) scale($random-scale);
+        animation: fall-#{$i} $fall-duration $fall-delay linear infinite;
+      }
+  
+      @keyframes fall-#{$i} {
+        #{percentage($random-yoyo-time)} {
+          transform: translate($random-x-end, $random-yoyo-y) scale($random-scale);
+        }
+  
+        to {
+          transform: translate($random-x-end-yoyo, 100vh) scale($random-scale);
+        }
+      }
+    }
+  }
+
+  h1 {
+  margin: 0;
+  height: 3vmin;
+  width: 30vmin;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+h1::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: -6.5vmin;
+  left: 7.25vmin;
+  width: 15.5vmin;
+  height: 15.5vmin;
+  border-radius: 50%;
+  border: 0.67vmin solid currentColor;
+  box-sizing: border-box;
+}
+
+em {
+  font-family: 'Josefin Sans', sans-serif;
+  color: currentColor;
+  font-size: 5vmin;
+  position: relative;
+  font-style: normal;
+  width: 10vmin;
+  text-align: center;
+}
+
+em.planet {
+  -webkit-animation: planet-rotate 4s linear infinite;
+  animation: planet-rotate 4s linear infinite;
+  position: relative;
+}
+
+em.planet::before {
+  content: "";
+  position: absolute;
+  top: -.175vmin;
+  left: 0.85vmin;
+  z-index: -1;
+  width: 3.25vmin;
+  height: 3.25vmin;
+  border-radius: 50%;
+  background: black;
+}
+
+em.planet.left {
+  -webkit-transform-origin: 10vmin 1vmin;
+  transform-origin: 10vmin 1vmin;
+}
+
+em.planet.right {
+  -webkit-transform-origin: -5vmin 1vmin;
+  transform-origin: -5vmin 1vmin;
+}
+
+@-webkit-keyframes planet-rotate {
+  to {
+    -webkit-transform: rotate(1turn);
+  }
+}
+
+@keyframes planet-rotate {
+  to {
+    transform: rotate(1turn);
+  }
+}
+  
