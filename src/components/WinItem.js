@@ -7,7 +7,7 @@ const WinItem = ({ points, setState, gifts }) => {
     const winnings = []
 
 
-    const roundedPoints = points.size / 2
+    const roundedPoints = points.size / 5
     let i = 1
     while (roundedPoints >= i) {
         winnings.push(gifts[i - 1])
