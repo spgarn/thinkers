@@ -1,9 +1,9 @@
 export const gifts =
     [
-        { state: 'vinst 1', gift: 'Jeans' },
-        { state: 'vinst 2', gift: 'Spel' },
-        { state: 'vinst 3', gift: 'Cosmos' },
-        { state: 'vinst 4', gift: 'Godis' },
-        { state: 'vinst 5', gift: 'Läsk' },
+        { state: 'SWOOSH', gift: 'Under soffan' },
+        { state: 'BOOSH', gift: 'Balkongen' },
+        { state: 'FOOSH', gift: 'Under runda spegeln' },
+        { state: 'LOOOSH', gift: 'Bakom dörren i hallen' },
+        { state: 'POOSH', gift: 'Under Stora TV' },
 
     ]

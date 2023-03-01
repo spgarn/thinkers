@@ -58,7 +58,7 @@ const QuestionPage = ({ data, setPoints, points, setState, state }) => {
         localStorage.setItem('points', JSON.stringify([...points]));
     }, [points])
 
-
+    const audioUrl = data?.audio && "https://www.youtube.com/embed/" + data.audio + "?autoplay=1"
 
 
 
@@ -78,7 +78,7 @@ const QuestionPage = ({ data, setPoints, points, setState, state }) => {
 
                             {data?.img &&
                                 <img style={{ width: '40%', minWidth: '250px', marginLeft: 'auto', position: 'relative', marginRight: 'auto', display: 'block' }} src={data?.img} alt="norefer" />}
-
+                            {data?.audio && <iframe width="0" height="0" frameborder="0" src={audioUrl} title="Omnotron Heroic 10 man by Mekanik - Priest PoV" allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>}
                             {data?.question && <Typography textAlign={'center'}>{data?.question}</Typography>}
 
                         </Grid>
