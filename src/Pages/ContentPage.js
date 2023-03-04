@@ -12,27 +12,28 @@ const QuestionPage = ({ data, setPoints, points, setState, state }) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        const date = new Date();
-        const hour = date.getHours().toString()
-        const minutes = date.getMinutes().toString()
-        const seconds = date.getSeconds().toString()
-        const time = hour + minutes + seconds
-        if (data.state === 6) {
-            const numberInput = input.replace(/[^\d]/g, '');
-            const numberInputParsed = parseInt(numberInput); // ta bort allt som inte är en siffra och parsa till int för att ta bort eventuell 0:a i början (e.g 08:51:55 blir 85155)
-            const hourMinuteInput = numberInput.length >= 5 ? numberInput.slice(0, -2) : numberInput;
-            const hourMinutParsed = parseInt(hourMinuteInput);
-            if (numberInputParsed === parseInt(time)) {
-                setPoints(previousState => new Set([...previousState, data.state]))
-                setError('')
-                return
-            } else if (hourMinutParsed === parseInt(hour + minutes)) {
-                setError('Fel svar, men jäkligt nära!')
-            }
-            else {
-                setError('Fel svar, testa igen.')
-            }
-        } else if (data.answer.map(a => a.toLowerCase()).includes(input.toLowerCase())) {
+        // const date = new Date();
+        // const hour = date.getHours().toString()
+        // const minutes = date.getMinutes().toString()
+        // const seconds = date.getSeconds().toString()
+        // const time = hour + minutes + seconds
+        // if (data.state === 6) {
+        //     const numberInput = input.replace(/[^\d]/g, '');
+        //     const numberInputParsed = parseInt(numberInput); // ta bort allt som inte är en siffra och parsa till int för att ta bort eventuell 0:a i början (e.g 08:51:55 blir 85155)
+        //     const hourMinuteInput = numberInput.length >= 5 ? numberInput.slice(0, -2) : numberInput;
+        //     const hourMinutParsed = parseInt(hourMinuteInput);
+        //     if (numberInputParsed === parseInt(time)) {
+        //         setPoints(previousState => new Set([...previousState, data.state]))
+        //         setError('')
+        //         return
+        //     } else if (hourMinutParsed === parseInt(hour + minutes)) {
+        //         setError('Fel svar, men jäkligt nära!')
+        //     }
+        //     else {
+        //         setError('Fel svar, testa igen.')
+        //     }
+        // } else if (data.answer.map(a => a.toLowerCase()).includes(input.toLowerCase())) {
+        if (data.answer.map(a => a.toLowerCase()).includes(input.toLowerCase())) {
             setPoints(previousState => new Set([...previousState, data.state]))
             setError('')
             toast.success(`Snyggt!! Det var rätt och du har nu fått poäng från fråga ${state}.`, {
