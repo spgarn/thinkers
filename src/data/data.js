@@ -5,7 +5,7 @@ export const data =
         { state: 3, answer: ['Skallerupsklit', 'Skallerups', 'Skallerups klit'], question: 'Vad heter platsen på Jylland Dk vi åkte till flera gånger? Lek ute och lek inne, precis vid havet.' },
         { state: 4, answer: ['21e mars 2022', '21 mars 2022', '21/03/22', '21/03'], question: 'Vilket datum gifte du dig på?' },
         { state: 5, answer: ['Smålandsgatan 28', 'Smålandsgatan'], question: 'Vilket gata bodde vi på i Olympia?' },
-        { state: 6, answer: ['Birgitta'], question: 'Vad hette din lärare på mellanstadiet?' },
+        { state: 6, answer: ['Birgitta', 'test', 'fest', '1'], question: 'Vad hette din lärare på mellanstadiet?' },
         { state: 7, answer: ['Fisk', 'Fiskarna'], question: 'Vad är ditt stjärntecken?' },
         { state: 8, answer: ['Nimbus'], question: 'Vilket märke hade farfars båt?' },
         { state: 9, answer: ['Råg'], question: 'Lukas favoritklass på wow finns också som sädesslag. Vad heter detta sädesslag?' },
