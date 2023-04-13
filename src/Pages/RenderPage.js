@@ -29,7 +29,7 @@ const RenderPage = () => {
                 <Paper style={{ padding: '24px', backgroundColor: 'lightblue' }}><Typography>Poäng: {points?.size || 0}</Typography></Paper>
             </Grid>
             {state === 0 ? <PaperItem points={points} data={data} setState={setState} /> : <ContentPage state={state} points={points} setPoints={setPoints} setState={setState} data={data?.find(item => item.state === state)} />}
-            {points.size >= 5 && <WinItem gifts={gifts} setState={setState} points={points}></WinItem>}
+            {points.size >= 1 && <WinItem gifts={gifts} setState={setState} points={points}></WinItem>}
         </>
     )
 }

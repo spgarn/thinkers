@@ -118,19 +118,19 @@ body {
   position: relative;
 }
 
-h1::before {
-  content: "";
-  display: block;
-  position: absolute;
-  z-index: -1;
-  top: -6.5vmin;
-  left: 7.25vmin;
-  width: 15.5vmin;
-  height: 15.5vmin;
-  border-radius: 50%;
-  border: 0.67vmin solid currentColor;
-  box-sizing: border-box;
-}
+// h1::before {
+//   content: "";
+//   display: block;
+//   position: absolute;
+//   z-index: -1;
+//   top: -6.5vmin;
+//   left: 7.25vmin;
+//   width: 15.5vmin;
+//   height: 15.5vmin;
+//   border-radius: 50%;
+//   border: 0.67vmin solid currentColor;
+//   box-sizing: border-box;
+// }
 
 em {
   font-family: 'Josefin Sans', sans-serif;

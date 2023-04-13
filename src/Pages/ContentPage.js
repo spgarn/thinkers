@@ -33,6 +33,22 @@ const QuestionPage = ({ data, setPoints, points, setState, state }) => {
         //         setError('Fel svar, testa igen.')
         //     }
         // } else if (data.answer.map(a => a.toLowerCase()).includes(input.toLowerCase())) {
+        if (typeof state === 'string') {
+            const bonusAnswer = ['OHW', 'one hit wonders', 'one-hit wonders', 'onehitwonders', 'onehit wonders']
+            if (bonusAnswer.map(answer => answer.toLowerCase()).includes(input.toLowerCase())) {
+                toast.success(`Snyggt!! Det var rätt och du kan nu visa shopkeepern att du har varit duktig. ${state}.`, {
+                    icon: '🪃👏🟢',
+                    duration: 4000,
+                    style: {
+                        borderRadius: '12px',
+                        background: '#333',
+                        color: '#fff',
+                    },
+                })
+                setError('')
+                return
+            } else return setError('Fel svar, testa igen')
+        }
         if (data.answer.map(a => a.toLowerCase()).includes(input.toLowerCase())) {
             setPoints(previousState => new Set([...previousState, data.state]))
             setError('')
@@ -49,7 +65,6 @@ const QuestionPage = ({ data, setPoints, points, setState, state }) => {
             return
         }
         else {
-            console.log('test3')
             setError('Fel svar, testa igen.')
         }
 
@@ -84,18 +99,18 @@ const QuestionPage = ({ data, setPoints, points, setState, state }) => {
 
                         </Grid>
 
-                        <form>
-                            <Grid minWidth={'50vw'} item>
-                                <TextField autoFocus onChange={(e) => handleChange(e)} helperText={error} error={!!error} fullWidth label={`fråga ${data?.state}`} />
-                            </Grid>
 
-                            <Grid mt={'24px'} minWidth={'50vw'} display={'flex'} justifyContent={'center'} item>
-                                <Button type="submit" onClick={(e) => onSubmit(e)} variant='contained'>Skicka svar</Button>
-                            </Grid>
-                        </form >
 
                     </Grid >
-            }
+            } <form>
+                <Grid minWidth={'50vw'} item>
+                    <TextField autoFocus onChange={(e) => handleChange(e)} helperText={error} error={!!error} fullWidth label={`fråga ${data?.state || 'Se ovan'}`} />
+                </Grid>
+
+                <Grid mt={'24px'} minWidth={'50vw'} display={'flex'} justifyContent={'center'} item>
+                    <Button type="submit" onClick={(e) => onSubmit(e)} variant='contained'>Skicka svar</Button>
+                </Grid>
+            </form >
         </>
     )
 }
