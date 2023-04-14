@@ -70,9 +70,8 @@ const QuestionPage = ({ data, setPoints, points, setState, state }) => {
 
     }
 
-    useEffect(() => {
-        localStorage.setItem('points', JSON.stringify([...points]));
-    }, [points])
+
+
 
     const audioUrl = data?.audio && "https://www.youtube.com/embed/" + data.audio + "?autoplay=1"
 
