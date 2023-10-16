@@ -5,6 +5,7 @@ import { gifts } from '../data/gifts'
 import ContentPage from './ContentPage'
 import { Paper, Grid, Typography } from '@mui/material'
 import WinItem from '../components/WinItem'
+import WaitPage from '../components/WaitPage'
 
 
 
@@ -26,12 +27,16 @@ const RenderPage = () => {
 
     useEffect(() => {
         localStorage.setItem('pointsGame', JSON.stringify([...points]));
-        if (!localStorage.getItem('dateGame') && points.size > 0) { localStorage.setItem('dateGame', JSON.stringify([new Date().toLocaleString()])); }
+        if (!localStorage.getItem('dateGame') && points.size > 0) { localStorage.setItem('dateGame', JSON.stringify("Rör er mot hallarna av David och leta efter GRÄNDEN vid det gamla gatuköket som precis bommat igen.")); }
         setDate(JSON.parse(localStorage.getItem('dateGame')))
     }, [points])
 
 
+    const currentTime = new Date()
+    const dateWhenStart = new Date("October 17, 2023 16:30:00")
 
+
+    if(currentTime < dateWhenStart)return <WaitPage state={state}></WaitPage>
 
 
     return (

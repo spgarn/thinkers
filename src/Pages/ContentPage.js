@@ -34,9 +34,9 @@ const QuestionPage = ({ data, setPoints, points, setState, state }) => {
         //     }
         // } else if (data.answer.map(a => a.toLowerCase()).includes(input.toLowerCase())) {
         if (typeof state === 'string') {
-            const bonusAnswer = ['OHW', 'one hit wonders', 'one-hit wonders', 'onehitwonders', 'onehit wonders']
+            const bonusAnswer = ['Boyband', 'boy band', 'boy group', 'boygroup', 'boys', 'boys will be boys','kullgrupp','pojkband']
             if (bonusAnswer.map(answer => answer.toLowerCase()).includes(input.toLowerCase())) {
-                toast.success(`Snyggt!! Det var rätt och du kan nu visa shopkeepern att du har varit duktig. ${state}.`, {
+                toast.success(`Snyggt!! Det var rätt och du kan nu visa hosten att du har varit duktig. ${state}.`, {
                     icon: '🪃👏🟢',
                     duration: 4000,
                     style: {
@@ -80,6 +80,7 @@ const QuestionPage = ({ data, setPoints, points, setState, state }) => {
     const handleChange = (e) => {
         setInput(e.target.value)
     }
+   
 
     return (
         <>
@@ -87,6 +88,7 @@ const QuestionPage = ({ data, setPoints, points, setState, state }) => {
                 <div className="arrow"></div>
             </div>
             {
+                
                 typeof state === 'string' ? <WinPage state={state}></WinPage>
                     : < Grid minWidth={'50vw'} minHeight={'50vh'} container gap={'2rem'} justifyContent={'center'} alignItems={'center'} flexDirection={'column'} >
                         <Grid item justifyContent={'center'} alignItems={'center'}>
