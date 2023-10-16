@@ -36,7 +36,7 @@ const RenderPage = () => {
     const dateWhenStart = new Date("October 17, 2023 16:30:00")
 
 
-    if(currentTime < dateWhenStart)return <WaitPage state={state}></WaitPage>
+    if(currentTime > dateWhenStart)return <WaitPage state={state}></WaitPage>
 
 
     return (
