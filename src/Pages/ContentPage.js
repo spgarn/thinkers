@@ -34,7 +34,7 @@ const QuestionPage = ({ data, setPoints, points, setState, state }) => {
         //     }
         // } else if (data.answer.map(a => a.toLowerCase()).includes(input.toLowerCase())) {
         if (typeof state === 'string') {
-            const bonusAnswer = ['Boyband', 'boy band', 'boy group', 'boygroup', 'boys', 'boys will be boys','kullgrupp','pojkband']
+            const bonusAnswer = ['JA']
             if (bonusAnswer.map(answer => answer.toLowerCase()).includes(input.toLowerCase())) {
                 toast.success(`Snyggt!! Det var rätt och du kan nu visa hosten att du har varit duktig. ${state}.`, {
                     icon: '🪃👏🟢',
