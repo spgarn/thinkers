@@ -29,7 +29,7 @@ const RenderPage = () => {
 
     useEffect(() => {
         localStorage.setItem('pointsGame', JSON.stringify([...points]));
-        if (!localStorage.getItem('dateGame') && points.size > 1) { localStorage.setItem('dateGame', JSON.stringify("Grattis! Nu ska vi HUSAS av nya UTMANINGAR!")); }
+        if (!localStorage.getItem('dateGame') && points.size > 15) { localStorage.setItem('dateGame', JSON.stringify("Grattis! Nu ska vi HUSAS av nya UTMANINGAR!")); }
         setDate(JSON.parse(localStorage.getItem('dateGame')))
     }, [points])
 

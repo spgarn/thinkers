@@ -73,7 +73,7 @@ const WaitPage = ({setStartCode}) => {
                         if (i === currentGift.gift.length - 2) return <em key={i} className="planet right">{letter}</em>
                         return <em style={{ minWidth: '28px' }} key={i}>{letter}</em>
                     })} */}
-                        Lite väl tidigt för en bärs? Kvällen förbereds fortfarande vänligen återkom lite senare.
+                        In the COLDDRAWER you should look. Perhaps a bottle from a took. A dark ale, that might hide a tale?
                     </h1></span>
                 <div className="snow"></div>
                 <div className="snow"></div>
