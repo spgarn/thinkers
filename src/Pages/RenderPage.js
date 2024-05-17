@@ -6,6 +6,7 @@ import ContentPage from './ContentPage'
 import { Paper, Grid, Typography } from '@mui/material'
 import WinItem from '../components/WinItem'
 import WaitPage from '../components/WaitPage'
+import PointsPage from '../components/PointPage'
 
 
 
@@ -34,8 +35,16 @@ const RenderPage = () => {
     }, [points])
 
     useEffect(() => {
-        if (startCode === "7174") localStorage.setItem('startCode', JSON.stringify("7174"))
+        if (startCode === "6576") localStorage.setItem('startCode', JSON.stringify("6576"))
+        if (startCode === "1337") localStorage.setItem('startCode', JSON.stringify("1337"))
+        if (startCode === "5411") localStorage.setItem('startCode', JSON.stringify("5411"))
     }, [startCode])
+
+    const getPoints = (code) => {
+        if (code === "1337") return 1
+        if (code === "6576") return 5
+        if (code === "5411") return 10
+    }
 
 
     const currentTime = new Date()
@@ -43,7 +52,9 @@ const RenderPage = () => {
 
 
     if (currentTime < dateWhenStart) return <WaitPage state={state}></WaitPage>
-    if (startCode !== "7174") return <WaitPage setStartCode={setStartCode} state={state}></WaitPage>
+    if (startCode !== "7174" && startCode !== "6576" && startCode !== "5411") { return <WaitPage setStartCode={setStartCode} state={state}></WaitPage> } else {
+        return <PointsPage points={getPoints(startCode)}></PointsPage>
+    }
 
     return (
         <>

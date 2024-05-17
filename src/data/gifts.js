@@ -1,4 +1,4 @@
 export const gifts =
     [
-        { state: 'BONUS', gift: 'Är det bra att starta dagen med en resorb?' },
+        { state: 'BONUS', gift: 'Vilken ZON spelas i bakgrunden?' },
     ]

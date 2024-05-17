@@ -3,6 +3,8 @@ import { gifts } from '../data/gifts'
 
 
 const WinPage = (state) => {
+    console.log(gifts)
+    console.log(state)
     const currentGift = gifts.find(gift => gift.state === state.state)
 
 
@@ -61,7 +63,7 @@ const WinPage = (state) => {
                         if (i === currentGift.gift.length - 2) return <em key={i} className="planet right">{letter}</em>
                         return <em style={{ minWidth: '28px' }} key={i}>{letter}</em>
                     })} */}
-                    {currentGift.gift}
+                    {currentGift?.gift}
 
                 </h1></span>
             <div className="snow"></div>
