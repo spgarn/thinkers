@@ -32,7 +32,7 @@ const PointPage = ({ points }) => {
 
     return (
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", gap: "50px" }}>
-            <div className="points" style={{ display: "flex", justifyContent: "center", alignItems: "center", padding: "12px" }}>
+            <div className="points" style={{ display: "flex", justifyContent: "center", alignItems: "center", padding: "42px" }}>
                 <h1>
                     GRATTIS!! Ni fick {points} poäng
                 </h1>
