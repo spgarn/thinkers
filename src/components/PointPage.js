@@ -12,7 +12,7 @@ const PointPage = ({ points }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (!code) return setError("Fel svar, testa igen.")
-        if (code.toLowerCase() === "Felwood".toLowerCase()) return toast.success(`SNYGGT!!! Extra poäng och dags att blanda en drink?.`, {
+        if (code.toLowerCase() === "Felwood".toLowerCase()) {toast.success(`SNYGGT!!! Extra poäng och dags att blanda en drink?.`, {
             icon: '🪃👏🟢',
             duration: 5000,
             style: {
@@ -21,6 +21,9 @@ const PointPage = ({ points }) => {
                 color: '#fff',
             },
         })
+        return setError("")
+    }
+        
         setError("Fel svar, testa igen.")
     }
 
