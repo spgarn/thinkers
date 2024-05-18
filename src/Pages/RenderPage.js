@@ -52,7 +52,7 @@ const RenderPage = () => {
 
 
     if (currentTime < dateWhenStart) return <WaitPage state={state}></WaitPage>
-    if (startCode !== "7174" && startCode !== "6576" && startCode !== "5411") { return <WaitPage setStartCode={setStartCode} state={state}></WaitPage> } else {
+    if (startCode !== "1337" && startCode !== "6576" && startCode !== "5411") { return <WaitPage setStartCode={setStartCode} state={state}></WaitPage> } else {
         return <PointsPage points={getPoints(startCode)}></PointsPage>
     }
 
