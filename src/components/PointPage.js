@@ -11,6 +11,7 @@ const PointPage = ({ points }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        if (!code) return setError("Fel svar, testa igen.")
         if (code.toLowerCase() === "Felwood".toLowerCase()) return toast.success(`SNYGGT!!! Extra poäng och dags att blanda en drink?.`, {
             icon: '🪃👏🟢',
             duration: 5000,
@@ -27,28 +28,22 @@ const PointPage = ({ points }) => {
 
 
     return (
-        <>
-        <div className="points" style={{ marginBottom: '32px' }}>
-        <span style={{ color: 'white', position: 'absolute', top: '15%', left: '50%', transform: 'translate(-50%, -50%)', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-
-<h1 style={{ flexWrap: 'nowrap' }}>
-    GRATTIS!! Ni fick {points} poäng
-</h1></span>
-        </div>
-
-            <div className="points" style={{ marginBottom: '32px' }}>
-               
-
-                <span style={{ color: 'white', position: 'absolute', top: '15%', left: '50%', transform: 'translate(-50%, -50%)', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-
-                    <h1 style={{ flexWrap: 'nowrap' }}>
-                        BONUS: Vilken ZON spelas i bakgrunden?
-                    </h1></span>
-
-
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", gap: "50px" }}>
+            <div className="points" style={{ display: "flex", justifyContent: "center", alignItems: "center", padding: "12px" }}>
+                <h1>
+                    GRATTIS!! Ni fick {points} poäng
+                </h1>
 
             </div>
-            <form>
+            <div>
+                <h1 style={{ color: "blue" }}>
+                    BONUS: Vilken ZON spelas i bakgrunden?
+                </h1>
+
+            </div>
+
+
+            <form style={{ marginTop: "100px" }}>
                 <Grid minWidth={'50vw'} item>
                     <TextField autoFocus onChange={(e) => setCode(e.target.value)} helperText={error} error={!!error} fullWidth label={`Skriv ditt svar här`} />
                 </Grid>
@@ -56,7 +51,7 @@ const PointPage = ({ points }) => {
                     <Button type="submit" onClick={handleSubmit} variant='contained'>SEND</Button>
                 </Grid>
             </form >
-        </>
+        </div>
     )
 }
 
