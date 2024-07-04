@@ -12,7 +12,7 @@ const PointPage = ({ points }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (!code) return setError("Fel svar, testa igen.")
-        if (code.toLowerCase() === "Felwood".toLowerCase()) {toast.success(`SNYGGT!!! Extra poäng och dags att blanda en drink?.`, {
+        if (code.toLowerCase() === "Men in Black".toLowerCase()) {toast.success(`SNYGGT!!! Extra poäng och dags att blanda en drink?.`, {
             icon: '🪃👏🟢',
             duration: 5000,
             style: {
@@ -34,19 +34,21 @@ const PointPage = ({ points }) => {
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", gap: "50px" }}>
             <div className="points" style={{ display: "flex", justifyContent: "center", alignItems: "center", padding: "42px" }}>
                 <h1>
-                    GRATTIS!! Ni fick {points} poäng
+                    Snyggt! Code Knäckers!
                 </h1>
 
             </div>
             <div>
                 <h1 style={{ color: "blue" }}>
-                    BONUS: Vilken ZON spelas i bakgrunden?
+                    BONUS: Vilken film är detta?
                 </h1>
+
+                <img style={{width:"400px"}} src="https://static.vecteezy.com/system/resources/previews/029/575/679/non_2x/men-letter-logo-design-inspiration-for-a-unique-identity-modern-elegance-and-creative-design-watermark-your-success-with-the-striking-this-logo-vector.jpg"></img>
 
             </div>
 
 
-            <form style={{ marginTop: "100px" }}>
+            <form>
                 <Grid minWidth={'50vw'} item>
                     <TextField autoFocus onChange={(e) => setCode(e.target.value)} helperText={error} error={!!error} fullWidth label={`Skriv ditt svar här`} />
                 </Grid>

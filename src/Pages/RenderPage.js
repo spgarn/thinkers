@@ -7,6 +7,7 @@ import { Paper, Grid, Typography } from '@mui/material'
 import WinItem from '../components/WinItem'
 import WaitPage from '../components/WaitPage'
 import PointsPage from '../components/PointPage'
+import BeerPage from '../components/BeerPage'
 
 
 
@@ -35,24 +36,20 @@ const RenderPage = () => {
     }, [points])
 
     useEffect(() => {
-        if (startCode === "6576") localStorage.setItem('startCode', JSON.stringify("6576"))
-        if (startCode === "1337") localStorage.setItem('startCode', JSON.stringify("1337"))
-        if (startCode === "5411") localStorage.setItem('startCode', JSON.stringify("5411"))
+        if (startCode === "1173") localStorage.setItem('startCode', JSON.stringify("1173"))
     }, [startCode])
 
     const getPoints = (code) => {
-        if (code === "1337") return 1
-        if (code === "6576") return 5
-        if (code === "5411") return 10
+        if (code === "1173") return 1
     }
 
 
     const currentTime = new Date()
-    const dateWhenStart = new Date("October 17, 2023 16:30:00")
+    const dateWhenStart = new Date("July 4, 2024 16:00:00")
 
 
-    if (currentTime < dateWhenStart) return <WaitPage state={state}></WaitPage>
-    if (startCode !== "1337" && startCode !== "6576" && startCode !== "5411") { return <WaitPage setStartCode={setStartCode} state={state}></WaitPage> } else {
+    if (currentTime < dateWhenStart) return <BeerPage state={state}></BeerPage>
+    if (startCode !== "1173" ) { return <WaitPage setStartCode={setStartCode} state={state}></WaitPage> } else {
         return <PointsPage points={getPoints(startCode)}></PointsPage>
     }
 
