@@ -18,6 +18,7 @@ const InputGame = () => {
     const [questions, setQuestions] = useState(quest);
     const [code, setCode] = useState({});
     const [error, setError] = useState('');
+    const [firstSubmit, setFirstSubmit] = useState(true);
 
     // Load points from localStorage on mount
     useEffect(() => {
@@ -45,6 +46,8 @@ const InputGame = () => {
             error: !q.answer.some(resp => resp.toLowerCase() === code[q.id]?.toLowerCase())
         }));
 
+        setFirstSubmit(false);
+
         setQuestions(updatedQuestions);
 
         const hasErrors = updatedQuestions.some(q => q.error);
@@ -71,7 +74,7 @@ const InputGame = () => {
             <Grid container justifyContent="center" alignItems="center">
                 <Grid item gap="36px" mt="24px" width="50vw" display="flex" flexDirection="column">
                     {questions.map((q) => (
-                        <Box key={q.id}>
+                        <Box key={q.id} border={!firstSubmit && code[q.id] && !q.error && "5px dashed green"} borderRadius="12px" padding={"12px"}>
                             <Typography variant="h6">{q.question}</Typography>
                             <TextField
                                 value={code[q.id] || ''}
