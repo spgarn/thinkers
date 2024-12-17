@@ -70,28 +70,30 @@ const InputGame = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <Grid container justifyContent="center" alignItems="center">
-                <Grid item gap="36px" mt="24px" width="50vw" display="flex" flexDirection="column">
-                    {questions.map((q) => (
-                        <Box key={q.id} border={!firstSubmit && code[q.id] && !q.error && "5px dashed green"} borderRadius="12px" padding={"12px"}>
-                            <Typography variant="h6">{q.question}</Typography>
-                            <TextField
-                                value={code[q.id] || ''}
-                                onChange={(e) => handleChange(e, q.id)}
-                                error={q.error}
-                                helperText={q.error ? "Fel svar, försök igen." : ''}
-                                fullWidth
-                                label="Skriv ditt svar här"
-                            />
+
+            <form onSubmit={handleSubmit}>
+                <Grid container justifyContent="center" alignItems="center">
+                    <Grid item gap="36px" mt="24px" width="50vw" display="flex" flexDirection="column">
+                    <Typography variant="h4">Dagens agenda!</Typography>
+                        {questions.map((q) => (
+                            <Box key={q.id} border={!firstSubmit && code[q.id] && !q.error && "5px dashed green"} borderRadius="12px" padding={"12px"}>
+                                <Typography variant="h6">{q.question}</Typography>
+                                <TextField
+                                    value={code[q.id] || ''}
+                                    onChange={(e) => handleChange(e, q.id)}
+                                    error={q.error}
+                                    helperText={q.error ? "Fel svar, försök igen." : ''}
+                                    fullWidth
+                                    label="Skriv ditt svar här"
+                                />
+                            </Box>
+                        ))}
+                        <Box display="flex" justifyContent="center" mt="24px">
+                            <Button type="submit" variant="contained">SEND</Button>
                         </Box>
-                    ))}
-                    <Box display="flex" justifyContent="center" mt="24px">
-                        <Button type="submit" variant="contained">SEND</Button>
-                    </Box>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </form>
+            </form>
     );
 };
 
