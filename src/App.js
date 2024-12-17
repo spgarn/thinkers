@@ -1,4 +1,4 @@
-import RenderPage from "./Pages/RenderPage";
+import InputGame from "./Pages/InputGame";
 import Card from './components/Card'
 import Page from "./components/Page";
 import { Toaster } from "react-hot-toast";
@@ -52,7 +52,7 @@ function App() {
             />
             <Page>
                 <Card>
-                    <RenderPage />
+                    <InputGame />
                     <Toaster />
                 </Card>
             </Page>
