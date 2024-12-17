@@ -17,19 +17,21 @@ const InputGame = () => {
     const [points, setPoints] = useState(new Set());
     const [questions, setQuestions] = useState(quest);
     const [code, setCode] = useState({});
-    const [error, setError] = useState('');
+    const [firstLoad, setFirstLoad] = useState('');
     const [firstSubmit, setFirstSubmit] = useState(true);
 
     // Load points from localStorage on mount
     useEffect(() => {
-        const storedPoints = JSON.parse(localStorage.getItem('pointsGame')) || [];
-        setPoints(new Set(storedPoints));
+        const storedPoints = JSON.parse(localStorage.getItem('pointsGame'));
+        storedPoints?.map(r => points.add(r))
+        setFirstLoad(false)
     }, []);
 
-    // Update points in localStorage when they change
+    // Update points in localStorage whenever points change
     useEffect(() => {
         localStorage.setItem('pointsGame', JSON.stringify([...points]));
     }, [points]);
+
 
     // Handles input changes for each TextField
     const handleChange = (e, id) => {
@@ -46,13 +48,20 @@ const InputGame = () => {
             error: !q.answer.some(resp => resp.toLowerCase() === code[q.id]?.toLowerCase())
         }));
 
-        setFirstSubmit(false);
+        // Get the correct answers' IDs
+        const correctAnswers = questions
+            .filter(q => q.answer.some(resp => resp.toLowerCase() === code[q.id]?.toLowerCase()))
+            .map(q => q.id); // Extract only the IDs
 
+        if (correctAnswers.length > 0) {
+            setPoints(prevPoints => new Set([...prevPoints, ...correctAnswers])); // Batch update
+        }
+
+        setFirstSubmit(false);
         setQuestions(updatedQuestions);
 
         const hasErrors = updatedQuestions.some(q => q.error);
         if (hasErrors) {
-            setError("Fel svar, testa igen.");
             return;
         }
 
@@ -66,35 +75,50 @@ const InputGame = () => {
             },
         });
 
-        setError("");
     };
 
-    return (
 
-            <form onSubmit={handleSubmit}>
-                <Grid container justifyContent="center" alignItems="center">
-                    <Grid item gap="36px" mt="24px" width="50vw" display="flex" flexDirection="column">
+    if(firstLoad) return null
+
+    if (points.size === 8) return
+    <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+        <Typography variant="h2">GRATTIS! Du har nu alla poäng!</Typography>
+    </Box>
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <Grid container justifyContent="center" alignItems="center">
+                <Grid item gap="36px" mt="24px" width="50vw" display="flex" flexDirection="column">
+                    <Typography variant="h4">Poäng: {points.size || "0"}/8</Typography>
                     <Typography variant="h4">Dagens agenda!</Typography>
-                        {questions.map((q) => (
-                            <Box key={q.id} border={!firstSubmit && code[q.id] && !q.error && "5px dashed green"} borderRadius="12px" padding={"12px"}>
-                                <Typography variant="h6">{q.question}</Typography>
-                                <TextField
-                                    value={code[q.id] || ''}
-                                    onChange={(e) => handleChange(e, q.id)}
-                                    error={q.error}
-                                    helperText={q.error ? "Fel svar, försök igen." : ''}
-                                    fullWidth
-                                    label="Skriv ditt svar här"
-                                />
-                            </Box>
-                        ))}
-                        <Box display="flex" justifyContent="center" mt="24px">
-                            <Button type="submit" variant="contained">SEND</Button>
+                    {questions.map((q) => (
+                        <Box
+                            key={q.id}
+                            border={!firstSubmit && code[q.id] && !q.error && "5px dashed green"}
+                            borderRadius="12px"
+                            padding="12px"
+                        >
+                            <Typography variant="h6">{q.question}</Typography>
+                            <TextField
+                                value={code[q.id] || ''}
+                                onChange={(e) => handleChange(e, q.id)}
+                                error={q.error}
+                                helperText={q.error ? "Fel svar, försök igen." : ''}
+                                fullWidth
+                                label="Skriv ditt svar här"
+                            />
                         </Box>
-                    </Grid>
+                    ))}
+                    <Box display="flex" justifyContent="center" mt="24px">
+                        <Button type="submit" variant="contained">SEND</Button>
+                    </Box>
                 </Grid>
-            </form>
+            </Grid>
+        </form>
     );
 };
 
 export default InputGame;
+
+
+
