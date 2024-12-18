@@ -78,12 +78,13 @@ const InputGame = () => {
     };
 
 
-    if(firstLoad) return null
+    if (firstLoad) return null
 
-    if (points.size === 8) return
-    <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
-        <Typography variant="h3">GRATTIS! Du har nu alla poäng!</Typography>
-    </Box>
+    if (points.size === 8) return (
+        <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+            <Typography variant="h3">GRATTIS! Du har nu alla poäng!</Typography>
+        </Box>
+    )
 
     return (
         <form onSubmit={handleSubmit}>
