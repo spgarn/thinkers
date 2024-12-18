@@ -82,7 +82,7 @@ const InputGame = () => {
 
     if (points.size === 8) return
     <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
-        <Typography variant="h2">GRATTIS! Du har nu alla poäng!</Typography>
+        <Typography variant="h3">GRATTIS! Du har nu alla poäng!</Typography>
     </Box>
 
     return (
