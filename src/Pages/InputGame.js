@@ -6,7 +6,7 @@ const quest = [
     { id: 1, question: "En annan form av NAP. Inte en powernap", answer: ["kidnap", "kidnappning", "kidnappa"], error: false },
     { id: 2, question: "Dass kan också användas som adjektiv. Detta adjektiv + vår förtäring", answer: ["dassbärs", "dassigbärs", "dassebärs", "sunkbärs"], error: false },
     { id: 3, question: "*ÖVER* eller *DEN BÄSTA* hjälper oss fram", answer: ["UBER", "über", "taxi"], error: false },
-    { id: 4, question: "Ett annat ord för att leta efter något.(engelska) + IC", answer: ["scandic", "hotell", "skandic", "hotellet"], error: false },
+    { id: 4, question: "Ett annat ord för att leta efter något + 🍆 - K (engelska)", answer: ["scandic", "hotell", "skandic", "hotellet"], error: false },
     { id: 5, question: "Vem går sämst i djungeln?", answer: ["Gorillan", "Gorilla", "gorillan", "gorilla"], error: false },
     { id: 6, question: "Glass, stor, tv-serie", answer: ["Magnum"], error: false },
     { id: 7, question: "Ett annat ord för naken", answer: ["bar"], error: false },
