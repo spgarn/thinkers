@@ -24,24 +24,50 @@ import Confetti from './Confetti';
  * ========================================
  */
 
-// Clue configuration - one mysterious clue!
+// Clue configuration - one fun clue per word!
 // ANSWER: "Opposite of Fox in a Box" - the place across the street from the escape room
 const CLUES = [
     {
         id: 1,
-        hint: "🦊📦 There's a place where you escape with a cunning animal trapped in a container... but tonight, we seek what lies on the OTHER SIDE. 🔄",
-        subHint: "Think of the famous escape room... now look ACROSS the street 👀",
-        answerWord: "🎯",
-        acceptedAnswers: [
-            "opposite of fox in a box",
-            "opposite fox in a box",
-            "mittemot fox in a box",
-            "across from fox in a box",
-            "across fox in a box",
-            "other side of fox in a box",
-            "opposite of fox in the box",
-            "opposite fox in the box",
-        ],
+        hint: "⬆️⬇️ Up and Down. Left and Right. Hot and Cold. What's the relationship between these pairs?",
+        subHint: "They are _______ of each other",
+        answerWord: "OPPOSITE",
+        acceptedAnswers: ["opposite", "opposites", "motsats", "motsatser", "motsatt"],
+    },
+    {
+        id: 2,
+        hint: "🎵 'Game ___ Thrones' ... 'Lord ___ the Rings' ... 'Pirates ___ the Caribbean' 🎬",
+        subHint: "A tiny 2-letter word that connects things",
+        answerWord: "OF",
+        acceptedAnswers: ["of", "av"],
+    },
+    {
+        id: 3,
+        hint: "🎤 YLVIS asked the eternal question: 'What does the ___ say?' 🦊",
+        subHint: "Ring-ding-ding-ding-dingeringeding!",
+        answerWord: "FOX",
+        acceptedAnswers: ["fox", "räv", "räven", "foxen"],
+    },
+    {
+        id: 4,
+        hint: "🚪 If you're not OUT, then you must be...?",
+        subHint: "The opposite of outside is ___side",
+        answerWord: "IN",
+        acceptedAnswers: ["in", "inne", "i"],
+    },
+    {
+        id: 5,
+        hint: "🔤 What letter comes right before B in the alphabet?",
+        subHint: "It's also what you get on a test if you're almost perfect",
+        answerWord: "A",
+        acceptedAnswers: ["a"],
+    },
+    {
+        id: 6,
+        hint: "📦 You put a gift in it. Cats love to sit in them. You can also do this in the ring! 🥊",
+        subHint: "It's square, made of cardboard, and rhymes with 'socks'",
+        answerWord: "BOX",
+        acceptedAnswers: ["box", "låda", "boxen", "lådan", "kartong"],
     },
 ];
 
@@ -201,12 +227,13 @@ const ClueGame = () => {
                     <Typography
                         sx={{
                             color: '#00ff88',
-                            fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+                            fontSize: { xs: '1.3rem', sm: '1.8rem', md: '2.2rem' },
                             fontWeight: 'bold',
                             textShadow: '0 0 20px rgba(0, 255, 136, 0.5)',
+                            lineHeight: 1.4,
                         }}
                     >
-                        🔄 Opposite of Fox in a Box 🦊📦
+                        🔄 OPPOSITE • OF • FOX • IN • A • BOX 🦊📦
                     </Typography>
                     <Typography
                         sx={{
