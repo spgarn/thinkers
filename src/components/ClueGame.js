@@ -43,7 +43,7 @@ const CLUES = [
     },
     {
         id: 3,
-        hint: "🎤 Famous dänga (song) by Ylvis 🦊",
+        hint: "🎤 Famous dänga (song) by Ylvis",
         subHint: "What does the ___ say? Ring-ding-ding-ding-dingeringeding!",
         answerWord: "FOX",
         acceptedAnswers: ["fox", "räv", "räven", "foxen"],
