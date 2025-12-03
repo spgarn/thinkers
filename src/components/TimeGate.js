@@ -126,7 +126,7 @@ const TimeGate = ({ children }) => {
                     mb: 4,
                 }}
             >
-                and Clue Solving????
+                and Solving Clues????
             </Typography>
 
             <Box
@@ -145,7 +145,7 @@ const TimeGate = ({ children }) => {
                         mb: 1,
                     }}
                 >
-                    Swedish Time: {currentTime}
+                    {currentTime}
                 </Typography>
 
                 <Typography
