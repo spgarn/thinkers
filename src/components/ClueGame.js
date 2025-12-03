@@ -24,35 +24,23 @@ import Confetti from './Confetti';
  * ========================================
  */
 
-// Clue configuration - each clue reveals part of the answer
-// ANSWER: The opposite of "Fox in a Box" (escape room)
+// Clue configuration - one mysterious clue!
+// ANSWER: "Opposite of Fox in a Box" - the place across the street from the escape room
 const CLUES = [
     {
         id: 1,
-        hint: "🦊 What's the sneaky animal that hides in dens and stars in escape rooms?",
-        subHint: "Think orange, fluffy tail, says 'what does the ___ say?'",
-        answerWord: "FOX",
-        acceptedAnswers: ["fox", "räv", "foxen", "räven"],
-    },
-    {
-        id: 2,
-        hint: "📦 Where do you put things to store them? Cardboard, square, you can escape from it...",
-        subHint: "It rhymes with 'socks' and 'locks'",
-        answerWord: "BOX",
-        acceptedAnswers: ["box", "låda", "boxen", "lådan", "kub", "cube"],
-    },
-    {
-        id: 3,
-        hint: "🔄 Now flip it! What's the OPPOSITE of 'Fox in a Box'? 🤔",
-        subHint: "If FOX → ? and BOX → ? ... What animal hunts the fox? Where's the opposite of 'in'?",
-        answerWord: "FINAL",
+        hint: "🦊📦 There's a place where you escape with a cunning animal trapped in a container... but tonight, we seek what lies on the OTHER SIDE. 🔄",
+        subHint: "Think of the famous escape room... now look ACROSS the street 👀",
+        answerWord: "🎯",
         acceptedAnswers: [
-            "hound out", "hound outside",
-            "dog out", "dog outside",
-            "hund ute", "hund utanför",
-            "hunter outside", "jägare ute",
-            "cat outside", "katt ute",
-            // Add more accepted variations as needed
+            "opposite of fox in a box",
+            "opposite fox in a box",
+            "mittemot fox in a box",
+            "across from fox in a box",
+            "across fox in a box",
+            "other side of fox in a box",
+            "opposite of fox in the box",
+            "opposite fox in the box",
         ],
     },
 ];
@@ -208,27 +196,27 @@ const ClueGame = () => {
                             mb: 2,
                         }}
                     >
-                        The answer was:
+                        Your destination:
                     </Typography>
                     <Typography
                         sx={{
                             color: '#00ff88',
-                            fontSize: { xs: '1.8rem', sm: '2.5rem', md: '3rem' },
+                            fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
                             fontWeight: 'bold',
                             textShadow: '0 0 20px rgba(0, 255, 136, 0.5)',
                         }}
                     >
-                        🦊➡️🐕 + 📦➡️🌳
+                        🔄 Opposite of Fox in a Box 🦊📦
                     </Typography>
                     <Typography
                         sx={{
                             color: '#a29bfe',
-                            fontSize: { xs: '1.5rem', sm: '2rem' },
-                            mt: 2,
+                            fontSize: { xs: '1rem', sm: '1.3rem' },
+                            mt: 3,
                             fontStyle: 'italic',
                         }}
                     >
-                        "Opposite of Fox in a Box"
+                        Look across the street... 👀
                     </Typography>
                 </Box>
 
