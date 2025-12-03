@@ -1,63 +1,71 @@
-import InputGame from "./Pages/InputGame";
-import Card from './components/Card'
-import Page from "./components/Page";
-import { Toaster } from "react-hot-toast";
 import { createTheme, GlobalStyles, ThemeProvider } from '@mui/material';
+import TimeGate from './components/TimeGate';
+import ClueGame from './components/ClueGame';
 
 const theme = createTheme({
-    spacing: 2,
+    spacing: 4,
     palette: {
+        mode: 'dark',
         primary: {
-            main: '#6f12cd',
+            main: '#ffd700',
+        },
+        secondary: {
+            main: '#00ff88',
+        },
+        background: {
+            default: '#0f0f23',
+            paper: 'rgba(255, 255, 255, 0.05)',
         },
     },
     typography: {
-        fontFamily: 'Comfortaa',
-        fontSize: 20,
+        fontFamily: '"Poppins", "Comfortaa", sans-serif',
+        fontSize: 16,
     },
     components: {
-        MuiCard: {
-            defaultProps: {
-                elevation: 5,
-            },
-
-        },
-        MuiPaper: {
-            defaultProps: {
-                elevation: 10,
-            }
-        },
-
         MuiButton: {
             styleOverrides: {
-                contained: {
-                    minWidth: '64px',
-                    minHeight: '36px',
-                    padding: '8px 16px',
-                    lineHeight: 0.5,
+                root: {
+                    borderRadius: '12px',
+                    textTransform: 'none',
+                },
+            },
+        },
+        MuiTextField: {
+            styleOverrides: {
+                root: {
+                    '& .MuiOutlinedInput-root': {
+                        borderRadius: '12px',
+                    },
                 },
             },
         },
     },
 });
 
-
 function App() {
     return (
         <ThemeProvider theme={theme}>
             <GlobalStyles
                 styles={{
-                    body: { backgroundColor: '#dae9cc5c' },
+                    '*': {
+                        margin: 0,
+                        padding: 0,
+                        boxSizing: 'border-box',
+                    },
+                    body: {
+                        backgroundColor: '#0f0f23',
+                        minHeight: '100vh',
+                        overflowX: 'hidden',
+                    },
+                    html: {
+                        scrollBehavior: 'smooth',
+                    },
                 }}
             />
-            <Page>
-                <Card>
-                    <InputGame />
-                    <Toaster />
-                </Card>
-            </Page>
+            <TimeGate>
+                <ClueGame />
+            </TimeGate>
         </ThemeProvider>
-
     );
 }
 
